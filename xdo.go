@@ -18,9 +18,9 @@ type Xdo struct {
 	xdo *C.xdo_t
 }
 
-func NewXdo() *Xdo {
+func NewXdo(display string) *Xdo {
 	x := new(Xdo)
-	x.xdo = C.xdo_new(nil)
+	x.xdo = C.xdo_new(C.CString(display))
 	return x
 }
 
